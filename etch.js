@@ -20,28 +20,30 @@ function removeAllChildNodes(container) {
         container.removeChild(container.firstChild);
     }
 }
+let padSize;
 
 function changeBoxSize() {
     document.getElementById("contain").style.gridTemplateColumns = "padSize, auto";
   }
-let padSize;
+
+
 
 function newPad() {
     padSize = prompt("How many squares long should your new sketch pad be? (up to 100)", "");
     if (padSize > 0 && padSize <101) {
         removeAllChildNodes(container);
-        //let newContainerbody.createElement
         for (i=0; i < (padSize * 2); i++) {
             let newBox = document.createElement("div");
+            
             newBox.className = "newBox";
-            newBox.style.border("solid");
+            newBox.style.border = "solid";
             container.appendChild(newBox);
-
-
-            boxes.forEach((div) => {
+            changeBoxSize();
+            let newBoxes = document.querySelectorAll(".newBox");
+            newBoxes.forEach((div) => {
                 div.addEventListener('mouseover', () => {
                     div.style.backgroundColor = "black";
-                });
+                })
             });
         }
     }
@@ -50,6 +52,7 @@ function newPad() {
         alert("Please enter a number between 1 and 100")
     }
 }
+
 
 //function clearBoxes() {
 //    newPad();
