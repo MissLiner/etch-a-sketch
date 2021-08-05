@@ -61,7 +61,13 @@ function newPad() {
         let newBoxes = document.querySelectorAll(".newBox");
         newBoxes.forEach((div) => {
             div.addEventListener('mouseover', () => {
-                div.style.backgroundColor = randomRGB();
+                if (colorBtn.textContent === "Black and White") {
+                    div.style.backgroundColor = randomRGB();
+                }
+        
+                else if (colorBtn.textContent === "Color") {
+                    div.style.backgroundColor = "black";
+                }
             });
         });
     }
