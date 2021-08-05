@@ -31,13 +31,15 @@ function newPad() {
             container.style.gridTemplateColumns = gridTemplateColumns;
             container.style.gridTemplateRows = gridTemplateColumns;
             container.appendChild(newBox);
-            let newBoxes = document.querySelectorAll(".newBox");
-            newBoxes.forEach((div) => {
-                div.addEventListener('mouseover', () => {
-                    div.style.backgroundColor = "black";
-                })
+            
+            }
+        
+        let newBoxes = document.querySelectorAll(".newBox");
+        newBoxes.forEach((div) => {
+            div.addEventListener('mouseover', () => {
+                div.style.backgroundColor = "black";
             });
-        }
+        });
     }
         
     else {
