@@ -24,21 +24,26 @@ function newPad() {
     let padSize = prompt("How many squares long should your new sketch pad be? (up to 100)", "");
     if (padSize > 0 && padSize <101) {
         removeAllChildNodes(container);
-        for (i=0; i < (padSize ** 2); i++) {
+        let x = (padSize ** 2);
+        for (i=0; i < x; i++) {
             let newBox = document.createElement("div");
             newBox.className = "newBox";
-            let gridTemplateColumns = 'repeat('+padSize+', auto)';
-            container.style.gridTemplateColumns = gridTemplateColumns;
-            container.style.gridTemplateRows = gridTemplateColumns;
+            newBox.style.border = "black";
+
+
             container.appendChild(newBox);
+     
+        }
+        let gridTemplateColumns = 'repeat('+padSize+', auto)';
+        container.style.gridTemplateColumns = gridTemplateColumns;
+        container.style.gridTemplateRows = gridTemplateColumns;
             let newBoxes = document.querySelectorAll(".newBox");
-            newBoxes.forEach((div) => {
-                div.addEventListener('mouseover', () => {
+                newBoxes.forEach((div) => {
+                    addEventListener('mouseover', () => {
                     div.style.backgroundColor = "black";
-                })
+                });
             });
         }
-    }
         
     else {
         alert("Please enter a number between 1 and 100")
