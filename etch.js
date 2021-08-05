@@ -16,9 +16,25 @@ function randomRGB() {
     return rgbColor;
 }
 
+let colorBtn = document.querySelector("#color");
+function changeColor() {
+    if (colorBtn.textContent === "Color") {
+        colorBtn.textContent = "Black and White";
+    }
+    else if (colorBtn.textContent === "Black and White") {
+        colorBtn.textContent = "Color";
+    }
+}
+
 boxes.forEach((div) => {
     div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = randomRGB();;
+        if (colorBtn.textContent === "Black and White") {
+            div.style.backgroundColor = randomRGB();
+        }
+
+        else if (colorBtn.textContent === "Color") {
+            div.style.backgroundColor = "black";
+        }
     });
 });
 
