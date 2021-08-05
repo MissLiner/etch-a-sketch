@@ -8,9 +8,17 @@ for (i=0; i < 900; i++) {
 
 const boxes = document.querySelectorAll(".box");
 
+function randomRGB() {
+    let a = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let c = Math.floor(Math.random() * 256);
+    let rgbColor = "rgb(" + a + ", " + b + ", " + c + ")";
+    return rgbColor;
+}
+
 boxes.forEach((div) => {
     div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = "black";
+        div.style.backgroundColor = randomRGB();;
     });
 });
 
@@ -37,7 +45,7 @@ function newPad() {
         let newBoxes = document.querySelectorAll(".newBox");
         newBoxes.forEach((div) => {
             div.addEventListener('mouseover', () => {
-                div.style.backgroundColor = "black";
+                div.style.backgroundColor = randomRGB();
             });
         });
     }
