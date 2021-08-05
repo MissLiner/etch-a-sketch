@@ -1,7 +1,6 @@
 const container = document.querySelector('#contain');
-//function 
 
-for (i=0; i < 256; i++) {
+for (i=0; i < 900; i++) {
     let box = document.createElement("div");
     box.className = "box";
     container.appendChild(box);
@@ -20,25 +19,18 @@ function removeAllChildNodes(container) {
         container.removeChild(container.firstChild);
     }
 }
-let padSize;
-
-function changeBoxSize() {
-    document.getElementById("contain").style.gridTemplateColumns = "padSize, auto";
-  }
-
-
 
 function newPad() {
-    padSize = prompt("How many squares long should your new sketch pad be? (up to 100)", "");
+    let padSize = prompt("How many squares long should your new sketch pad be? (up to 100)", "");
     if (padSize > 0 && padSize <101) {
         removeAllChildNodes(container);
-        for (i=0; i < (padSize * 2); i++) {
+        for (i=0; i < (padSize ** 2); i++) {
             let newBox = document.createElement("div");
-            
             newBox.className = "newBox";
-            newBox.style.border = "solid";
+            let gridTemplateColumns = 'repeat('+padSize+', auto)';
+            container.style.gridTemplateColumns = gridTemplateColumns;
+            container.style.gridTemplateRows = gridTemplateColumns;
             container.appendChild(newBox);
-            changeBoxSize();
             let newBoxes = document.querySelectorAll(".newBox");
             newBoxes.forEach((div) => {
                 div.addEventListener('mouseover', () => {
@@ -53,7 +45,3 @@ function newPad() {
     }
 }
 
-
-//function clearBoxes() {
-//    newPad();
-//}
