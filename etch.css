@@ -25,7 +25,7 @@ p {
 #bdiv {
     text-align: center;
     margin-left: 150px;
-    margin-top: 70px;
+    margin-top: 110px;
     position: absolute;
     top: 0%;
 
@@ -43,5 +43,5 @@ button {
     background-color: white;
     border-radius: 12px;
     border-width: 6px;
-    border-color:linen;
+    border-color:lightgray;
 }
