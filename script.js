@@ -17,6 +17,8 @@ function randomRGB() {
 }
 
 let colorBtn = document.querySelector("#color");
+let clearBtn = document.querySelector("#clear");
+
 function changeColor() {
     if (colorBtn.textContent === "Color") {
         colorBtn.textContent = "Black";
@@ -76,4 +78,11 @@ function newPad() {
         alert("Please enter a number between 1 and 100")
     }
 }
+
+colorBtn.addEventListener("click", function() {
+    changeColor();
+});
+clearBtn.addEventListener("click", function() {
+    newPad();
+})
 
