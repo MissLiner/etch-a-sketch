@@ -1,9 +1,9 @@
-const container = document.querySelector('#contain');
+const pad = document.querySelector('#container');
 
-for (i=0; i < 900; i++) {
+for (i=0; i < 256; i++) {
     let box = document.createElement("div");
     box.className = "box";
-    container.appendChild(box);
+    pad.appendChild(box);
 }
 
 const boxes = document.querySelectorAll(".box");
@@ -19,16 +19,16 @@ function randomRGB() {
 let colorBtn = document.querySelector("#color");
 function changeColor() {
     if (colorBtn.textContent === "Color") {
-        colorBtn.textContent = "Black and White";
+        colorBtn.textContent = "Black";
     }
-    else if (colorBtn.textContent === "Black and White") {
+    else if (colorBtn.textContent === "Black") {
         colorBtn.textContent = "Color";
     }
 }
 
 boxes.forEach((div) => {
     div.addEventListener('mouseover', () => {
-        if (colorBtn.textContent === "Black and White") {
+        if (colorBtn.textContent === "Black") {
             div.style.backgroundColor = randomRGB();
         }
 
@@ -38,30 +38,30 @@ boxes.forEach((div) => {
     });
 });
 
-function removeAllChildNodes(container) {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
+function removeAllChildNodes(pad) {
+    while (pad.firstChild) {
+        pad.removeChild(pad.firstChild);
     }
 }
 
 function newPad() {
-    let padSize = prompt("How many squares long should your new sketch pad be? (up to 100)", "");
+    let padSize = prompt("How wide should your new sketch pad be? (up to 100)", "");
     if (padSize > 0 && padSize <101) {
-        removeAllChildNodes(container);
+        removeAllChildNodes(pad);
         for (i=0; i < (padSize ** 2); i++) {
             let newBox = document.createElement("div");
             newBox.className = "newBox";
-            let gridTemplateColumns = 'repeat('+padSize+', auto)';
-            container.style.gridTemplateColumns = gridTemplateColumns;
-            container.style.gridTemplateRows = gridTemplateColumns;
-            container.appendChild(newBox);
+            let newSize = 'repeat('+padSize+', auto)';
+            pad.style.gridTemplateColumns = newSize;
+            pad.style.gridTemplateRows = newSize;
+            pad.appendChild(newBox);
             
             }
         
         let newBoxes = document.querySelectorAll(".newBox");
         newBoxes.forEach((div) => {
             div.addEventListener('mouseover', () => {
-                if (colorBtn.textContent === "Black and White") {
+                if (colorBtn.textContent === "Black") {
                     div.style.backgroundColor = randomRGB();
                 }
         
