@@ -12,7 +12,7 @@ function randomRGB() {
     let a = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
     let c = Math.floor(Math.random() * 256);
-    let rgbColor = "rgb(" + a + ", " + b + ", " + c + ")";
+    let rgbColor = `rgb(${a},${b},${c})`;
     return rgbColor;
 }
 
